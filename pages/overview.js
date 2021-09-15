@@ -1,17 +1,20 @@
-import React from 'react'
-import Link from 'next/link'
+import Head from "../components/Head";
+import { useState } from "react";
+import userName from "./index"
+import CookieStandHeader from "../components/Header";
 
-const overview = () => {
+export default function overview() {
+    const [title, setTitle] = useState('Overview')
+    const [link, setLink] = useState('/')
+    const [titleLink, setTitleLink] = useState('back to Main Page')
+    const [username, setUserName] =useState(userName)
     return (
-     
-        <header className="flex-1 p-2 text-3xl text-left bg-green-500 ">
-          <Link href='/'><button className="float-right pl-1 pr-1 text-base bg-gray-100 ">Return to Main page</button></Link>
-            <h1 className="p-5 text-3xl text-left font h-15">
-                Cookie Stand Admin
-            </h1>
-        
-        </header>
+        <div>
+            <Head title={title} />
+            <div className="w-screen h-screen bg-green-100 " >
+                <Header link={link} titleLink={titleLink} header={title} />
+            </div>
+
+        </div>
     )
 }
-
-export default overview
